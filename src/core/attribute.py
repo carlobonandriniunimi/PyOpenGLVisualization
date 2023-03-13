@@ -43,6 +43,8 @@ class Attribute:
 
         # specify how data will be read from the currently bound buffer
         # into the specified variable
+        # the associations between vertex buff and prog variables is stored in
+        # the vao (vertex attrib object) bound prior to the fun call
         if self.data_type == 'int':
             glVertexAttribPointer(variable_ref, 1, GL_INT, False, 0, None)
         elif self.data_type == 'float':

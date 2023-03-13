@@ -3,6 +3,7 @@ import sys
 import pygame
 
 from .input import Input
+from .openGLUtils import OpenGLUtils
 
 
 class Base:
@@ -47,6 +48,8 @@ class Base:
     def run(self):
         # startup
         self.initialize()
+
+        OpenGLUtils.print_system_info()
 
         # main loop
         while self.running:

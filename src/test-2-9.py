@@ -1,9 +1,9 @@
 from math import sin, cos
 
 from core.base import Base
-from openGLUtils import OpenGLUtils
-from attribute import Attribute
-from uniform import Uniform
+from core.openGLUtils import OpenGLUtils
+from core.attribute import Attribute
+from core.uniform import Uniform
 from OpenGL.GL import *
 
 

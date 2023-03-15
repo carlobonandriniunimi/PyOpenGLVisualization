@@ -8,6 +8,7 @@ from .openGLUtils import OpenGLUtils
 
 class Base:
     def __init__(self, screen_size=None):
+        self.delta_time = None
         if screen_size is None:
             screen_size = [512, 512]
         # initialize all pygame modules
@@ -37,6 +38,9 @@ class Base:
         # manage user input
         self.input = Input()
 
+        # number of seconds application has been running
+        self.time = 0
+
     # implement by extending class
     def initialize(self):
         pass
@@ -57,6 +61,11 @@ class Base:
             self.input.update()
             if self.input.quit:
                 self.running = False
+
+            # seconds since iteration of run loop
+            self.delta_time = self.clock.get_time() / 1000
+            # increment time application has been running
+            self.time += self.delta_time
 
             # update
             self.update()

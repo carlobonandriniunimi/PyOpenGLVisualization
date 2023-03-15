@@ -65,6 +65,10 @@ class Test(Base):
         self.translation.data[0] = 0.75 * cos(self.time)
         self.translation.data[1] = 0.75 * sin(self.time)
 
+        self.base_color.data[0] = (sin(self.time) + 1) / 2
+        self.base_color.data[1] = (sin(self.time + 2.1) + 1) / 2
+        self.base_color.data[2] = (sin(self.time + 4.2) + 1) / 2
+
         # reset color buffer
         glClear(GL_COLOR_BUFFER_BIT)
 

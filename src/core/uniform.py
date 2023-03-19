@@ -4,7 +4,7 @@ from OpenGL.GL import *
 class Uniform:
     def __init__(self, data_type, data):
         # type of data:
-        # int | bool | float | vec2 | vec3 | vec4
+        # int | bool | float | vec2 | vec3 | vec4 | mat4
         self.data_type = data_type
         # data to be sent to uniform variable
         self.data = data
@@ -36,3 +36,6 @@ class Uniform:
         elif self.data_type == "vec4":
             glUniform4f(self.variable_ref, self.data[0], self.data[1],
                         self.data[2], self.data[3])
+        elif self.data_type == "mat4":
+            # GL_TRUE if data is an array of row vectors
+            glUniformMatrix4fv(self.variable_ref, 1, GL_TRUE, self.data)
